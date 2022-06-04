@@ -14,7 +14,7 @@
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="https://cdn-icons-png.flaticon.com/512/2824/2824788.png" rel="shortcut icon" type="image/x-icon" />
 
     <link href="Content/sitemaster.css" rel="stylesheet" />
 </head>
@@ -52,9 +52,18 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
+                        <li><a runat="server" href="~/">
+                            <span class="glyphicon glyphicon-home"></span>
+                            Inicio</a></li>
+                        <li>
+                            <a runat="server" href="~/Carrito">
+                               <span class="glyphicon glyphicon-shopping-cart"></span>
+                                <span class="badge">
+                                    <asp:Label ID="lblCart" runat="server" Text="0"></asp:Label>
+                                </span>
+                                Carrito
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
