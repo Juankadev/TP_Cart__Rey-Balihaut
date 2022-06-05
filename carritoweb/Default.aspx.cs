@@ -18,6 +18,16 @@ namespace carritoweb
             listaArticulos = negocio.listar();
             dgvListado.DataSource = listaArticulos;
             dgvListado.DataBind();
+            Session.Add("lista", listaArticulos);
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            //Label1.Text = "0";
+            //Session.Add("cant", contador++);
+            //Response.Redirect("Default.aspx?" + Session["lblCart"].ToString());
+            //listaArticulosCarrito.Add();
+            //Response.Redirect("Carrito.aspx?listaArticulos=" + listaArticulos, false);
         }
     }
 }

@@ -17,9 +17,11 @@
     </div>
 
     <asp:GridView style="display:none" ID="dgvListado" runat="server"></asp:GridView>
-
+    
 
      <div class="content-card">
+
+         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 
         <% foreach (Dominio.Articulo item in listaArticulos)
         {%> 
@@ -30,9 +32,9 @@
                     <div class="card-body">
                       <h2 class="card-title"><%=item.NombreArt %></h2>
                       <p class="card-text"><%=item.DescripcionArt %></p>
-                      <p><strong>$<%=item.PrecioArt %></strong></p>        
-                        <asp:Button ID="Button1" class="btn-add" runat="server" Text="Añadir al Carrito" />
-                      
+                      <p><strong>$<%=item.PrecioArt %></strong></p>  
+                        <a class="btn-add" href="Carrito.aspx?id=<%=item.Id %>">Añadir al Carrito</a>
+                        <!--<asp:Button ID="Button1" PostBack="true" OnClick="Button1_Click" class="btn-add" runat="server" Text="Añadir al Carrito" />-->
                     </div>
                 </div>
             <%}
