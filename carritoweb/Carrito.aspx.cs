@@ -42,6 +42,19 @@ namespace carritoweb
 
             price.Text = "$" + Session["price"].ToString();
 
+
+            //btn-comprar
+            success.Visible = false;
+
+            //icon eliminar
+            ImageButton1.AlternateText = "delete";
+            ImageButton1.Height = 30;
+            ImageButton1.ImageUrl = "https://cdn-icons-png.flaticon.com/512/1828/1828843.png";
+        }
+
+        protected void comprar_Click(object sender, EventArgs e)
+        {
+            success.Visible = true;
         }
     }
 }

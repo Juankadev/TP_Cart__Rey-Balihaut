@@ -82,6 +82,7 @@ body {
     gap: 40px 20px;
     flex-wrap: wrap;
     justify-content: space-between;
+    text-align: center;
 }
 
 @media screen and (max-width: 768px) {
@@ -158,15 +159,16 @@ h2.cart-title {
     justify-content: space-between;
 }
 
-.glyphicon-remove {
-    border-radius: 100%;
+.img-delete {
+    /*border-radius: 100%;
     padding: 6px;
-    border: 2px solid darkred;
-    transition: .3s
+    border: 2px solid darkred;*/
+    transition: .5s
 }
 
-    .glyphicon-remove:hover {
-        background-color: darkred;
+.img-delete:hover {
+        /*background-color: darkred;*/
+        transform:scale(1.2);
         cursor: pointer;
     }
 

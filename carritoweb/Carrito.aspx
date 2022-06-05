@@ -18,7 +18,7 @@
                      <img src="<%=item.ImagenArt%>" class="card-img-top" alt="...">
                      <h5 class="card-title"><%=item.NombreArt %></h5>
                      <p><strong>$<%=item.PrecioArt %></strong></p>                    
-                     <span class="glyphicon glyphicon-remove"></span>
+                     <asp:ImageButton ID="ImageButton1" class="img-delete" runat="server" />
                </div>
              <% 
              } %>
@@ -38,7 +38,8 @@
             <h5>Total</h5>
             <asp:Label ID="price" runat="server" Text="$0"></asp:Label>
         </div>
-        <button type="button" class="btn btn-success">Comprar</button>
+        <asp:Button ID="comprar" OnClick="comprar_Click" class="btn btn-success" runat="server" Text="Comprar" />
+        <asp:Label ID="success" class="lbl-comprar" runat="server" Text="Gracias por tu compra!."></asp:Label>
     </div>
 
     </div>
