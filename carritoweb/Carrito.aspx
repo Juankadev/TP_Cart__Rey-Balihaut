@@ -10,8 +10,7 @@
     <div class="content-cart">
         <div class="content-items">  
 
-        <%if(listaArticulosCarrito!=null){%> 
-            
+           
             <% foreach (Dominio.Articulo item in listaArticulosCarrito)
             { %> 
                <div class="cart-item">
@@ -23,11 +22,6 @@
              <% 
              } %>
 
-        <% } 
-            else
-            { %>
-                <h3>Ups! Tu Carrito está vacio.</h3>
-            <% } %>
             
         </div>
     

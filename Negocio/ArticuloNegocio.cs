@@ -118,6 +118,45 @@ namespace Negocio
                 throw ex;
             }
         }
+
+
+
+        public Articulo busquedaId(int id)
+        {
+            Articulo aux = new Articulo();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("select Id,Nombre,Precio,ImagenUrl from ARTICULOS where Id = @Id");
+                datos.setearParametro("@Id", id);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.NombreArt = (string)datos.Lector["Nombre"];
+                    aux.PrecioArt = (decimal)datos.Lector["Precio"];
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
+                        aux.ImagenArt = (string)datos.Lector["ImagenUrl"];
+                }
+                return aux;
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+
     }
 }
 

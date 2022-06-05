@@ -10,21 +10,20 @@ using Negocio;
 namespace carritoweb
 {
     public partial class Contact : Page
-    {
-        public List<Articulo> listaArticulos { get; set; }
+    {      
         public List<Articulo> listaArticulosCarrito { get; set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Add("listaCarrito", listaArticulosCarrito);
+            //Session.Add("listaCarrito", listaArticulosCarrito);
+            //listaArticulosCarrito = Session["listaArticulos"].ToString();
 
             ArticuloNegocio negocio = new ArticuloNegocio();
-            listaArticulos = negocio.listar();
 
-            string id = Request.QueryString["id"].ToString();
-            Label1.Text = id;
-            //listaArticulosCarrito
-            //listaArticulosCarrito = Session["listaArticulos"].ToString();
+            //obtengo ID
+            string id_string = Request.QueryString["id"].ToString(); //validar null
+            int id = Int32.Parse(id_string);
+            //Busco ID
+            listaArticulosCarrito.Add(negocio.busquedaId(id));
 
         }
     }
