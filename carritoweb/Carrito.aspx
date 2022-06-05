@@ -2,15 +2,16 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
     <h2 class="cart-title"><%: Title %>.</h2>
+
     <h3>Tus productos añadidos.</h3>
 
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     <div class="content-cart">
+
         <div class="content-items">  
 
            <%if(listaArticulosCarrito!=null){%> 
+ 
             <% foreach (Dominio.Articulo item in listaArticulosCarrito)
             { %> 
                <div class="cart-item">
@@ -23,7 +24,7 @@
              } %>
            <%}
             else{%> 
-            <h3>Carrito Vacio</h3>
+            <h3>Tu Carrito está Vacio</h3>
              <%}%> 
             
         </div>

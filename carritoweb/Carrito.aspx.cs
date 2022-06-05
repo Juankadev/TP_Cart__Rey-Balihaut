@@ -14,19 +14,28 @@ namespace carritoweb
         public List<Articulo> listaArticulosCarrito { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session.Add("listaCarrito", listaArticulosCarrito);
-            //listaArticulosCarrito = Session["listaArticulos"].ToString();
-
             ArticuloNegocio negocio = new ArticuloNegocio();
 
-            //obtengo ID
-            string id_string = Request.QueryString["id"].ToString(); //validar null
-            int id = Int32.Parse(id_string);
-            //Busco ID
-            //listaArticulosCarrito = negocio.listar();
-            //listaArticulosCarrito.Add(negocio.busquedaId(id));
 
-            listaArticulosCarrito = negocio.busquedalistaId(id);
+            if (!IsPostBack)
+            {
+                listaArticulosCarrito = new List<Dominio.Articulo>();
+                Session.Add("listaArticulosCarrito", listaArticulosCarrito);
+            }
+
+            listaArticulosCarrito = Session["listaArticulosCarrito"] as List<Articulo>;
+
+            if (Request.QueryString["id"] != null)
+            {
+                string id_string = Request.QueryString["id"].ToString();
+                int id = Int32.Parse(id_string);
+                listaArticulosCarrito.Add(negocio.busquedaId(id));
+            }
+
+
+
+
+
         }
     }
 }
