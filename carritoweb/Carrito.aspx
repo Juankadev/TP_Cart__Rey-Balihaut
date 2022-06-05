@@ -36,7 +36,7 @@
         <h3>Resumen</h3>
         <div class="total">
             <h5>Total</h5>
-            <asp:Label ID="price" runat="server" Text=""></asp:Label>
+            <asp:Label ID="price" runat="server" Text="$0"></asp:Label>
         </div>
         <button type="button" class="btn btn-success">Comprar</button>
     </div>

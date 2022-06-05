@@ -16,9 +16,10 @@ namespace carritoweb
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
+            string suma="";
+
             //se resetea, por eso no cargan todos los productos
             listaArticulosCarrito = new List<Dominio.Articulo>();
-            //listaAux = new List<Dominio.Articulo>();
 
 
             if (Request.QueryString["id"] != null)
@@ -29,12 +30,18 @@ namespace carritoweb
                 listaArticulosCarrito.Add(negocio.busquedaId(id));
                 Session.Add("listaArticulosCarrito", listaArticulosCarrito);
             } 
-
             listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
 
 
             //price
-            price.Text = Request.QueryString["price"].ToString();
+            if (Request.QueryString["price"] != null)
+            {
+                suma = Request.QueryString["price"].ToString();
+                Session.Add("price", suma);
+            }
+
+            price.Text = "$" + Session["price"].ToString();
+
         }
     }
 }
