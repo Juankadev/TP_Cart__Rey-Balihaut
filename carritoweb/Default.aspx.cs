@@ -11,23 +11,23 @@ namespace carritoweb
 {
     public partial class _Default : Page
     {
-        public List<Articulo> listaArticulos { get; set; }
+        public List<Articulo> catalogo { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            listaArticulos = negocio.listar();
-            dgvListado.DataSource = listaArticulos;
+            if(!IsPostBack)
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                catalogo = negocio.listar();              
+                Session.Add("catalogo", catalogo);
+            }
+
+            dgvListado.DataSource = catalogo;
             dgvListado.DataBind();
-            Session.Add("lista", listaArticulos);
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //Label1.Text = "0";
-            //Session.Add("cant", contador++);
-            //Response.Redirect("Default.aspx?" + Session["lblCart"].ToString());
-            //listaArticulosCarrito.Add();
-            //Response.Redirect("Carrito.aspx?listaArticulos=" + listaArticulos, false);
+            
         }
     }
 }

@@ -12,29 +12,29 @@ namespace carritoweb
     public partial class Contact : Page
     {      
         public List<Articulo> listaArticulosCarrito { get; set; }
-        public List<Articulo> listaArticulosCarrito2 { get; set; }
-
+        //public List<Articulo> listaAux { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            //Contador p = new Contador(); // se reseteaaaaa
+            //se resetea, por eso no cargan todos los productos
+            listaArticulosCarrito = new List<Dominio.Articulo>();
+            //listaAux = new List<Dominio.Articulo>();
 
-
-            if (listaArticulosCarrito == null)
-            {
-                listaArticulosCarrito = new List<Dominio.Articulo>();
-                //Session.Add("listaArticulosCarrito", listaArticulosCarrito);
-            }
 
             if (Request.QueryString["id"] != null)
             {
                 string id_string = Request.QueryString["id"].ToString();
                 int id = Int32.Parse(id_string);
+
                 listaArticulosCarrito.Add(negocio.busquedaId(id));
                 Session.Add("listaArticulosCarrito", listaArticulosCarrito);
-            }
+            } 
 
             listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
+
+
+            //price
+            price.Text = Request.QueryString["price"].ToString();
         }
     }
 }

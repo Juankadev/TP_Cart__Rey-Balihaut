@@ -21,7 +21,7 @@
 
      <div class="content-card">
 
-        <% foreach (Dominio.Articulo item in listaArticulos)
+        <% foreach (Dominio.Articulo item in catalogo)
         {%> 
                 <div class="card">
                     <div class="card-img">
@@ -30,8 +30,8 @@
                     <div class="card-body">
                       <h2 class="card-title"><%=item.NombreArt %></h2>
                       <p class="card-text"><%=item.DescripcionArt %></p>
-                      <p><strong>$<%=item.PrecioArt %></strong></p>  
-                        <a class="btn-add" href="Carrito.aspx?id=<%=item.Id %>">Añadir al Carrito</a>
+                      <p><strong>$<%=item.PrecioArt %></strong></p>                         
+                        <a class="btn-add" href="Carrito.aspx?id=<%=item.Id %>&price=<%=item.PrecioArt %>">Añadir al Carrito</a>
                         <!--<asp:Button ID="Button1" PostBack="true" OnClick="Button1_Click" class="btn-add" runat="server" Text="Añadir al Carrito" />-->
                     </div>
                 </div>
