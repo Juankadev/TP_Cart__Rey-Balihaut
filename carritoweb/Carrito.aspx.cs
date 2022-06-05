@@ -23,8 +23,10 @@ namespace carritoweb
             string id_string = Request.QueryString["id"].ToString(); //validar null
             int id = Int32.Parse(id_string);
             //Busco ID
-            listaArticulosCarrito.Add(negocio.busquedaId(id));
+            //listaArticulosCarrito = negocio.listar();
+            //listaArticulosCarrito.Add(negocio.busquedaId(id));
 
+            listaArticulosCarrito = negocio.busquedalistaId(id);
         }
     }
 }

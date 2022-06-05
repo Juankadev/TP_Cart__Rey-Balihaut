@@ -157,6 +157,49 @@ namespace Negocio
 
 
 
+
+
+
+
+        public List<Articulo> busquedalistaId(int id)
+        {
+            Articulo aux = new Articulo();
+            AccesoDatos datos = new AccesoDatos();
+            List<Articulo> list = new List<Articulo>();
+            try
+            {
+                datos.setearConsulta("select Id,Nombre,Precio,ImagenUrl from ARTICULOS where Id = @Id");
+                datos.setearParametro("@Id", id);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.NombreArt = (string)datos.Lector["Nombre"];
+                    aux.PrecioArt = (decimal)datos.Lector["Precio"];
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
+                        aux.ImagenArt = (string)datos.Lector["ImagenUrl"];
+
+                    list.Add(aux);
+                }
+                return list;
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+
+
     }
 }
 
