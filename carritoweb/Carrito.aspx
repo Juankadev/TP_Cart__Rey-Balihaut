@@ -5,7 +5,7 @@
     <h2 class="cart-title"><%: Title %>.</h2>
 
     <h3>Tus productos añadidos.</h3>
-
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     <div class="content-cart">
 
         <div class="content-items">  

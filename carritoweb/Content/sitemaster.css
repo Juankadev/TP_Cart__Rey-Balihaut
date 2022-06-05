@@ -30,7 +30,7 @@ body {
 
 .btn.btn-primary.btn-lg {
     background-color: #6b31ff;
-    border: 1px solid #fff;
+    border: 0px solid #fff;
     transition: 0.6s;
 }
 
@@ -70,7 +70,7 @@ body {
     text-transform: uppercase;
     padding: 10px;
     border-radius: 4px;
-    transition: .5s
+    transition: .3s
 }
 
     .btn-add:hover {
@@ -194,4 +194,17 @@ li:hover .badge {
 
 .lbl-success {
     color: rgb(70 196 17)
+}
+
+
+a{
+    text-decoration:none;
+    color:#fff;
+    width:100%;
+    display:block;
+    text-align:center;
+}
+a:hover {
+    text-decoration: none;
+    color: #fff
 }
