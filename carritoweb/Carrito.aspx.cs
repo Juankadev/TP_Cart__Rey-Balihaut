@@ -16,7 +16,7 @@ namespace carritoweb
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            string suma="";
+            string val="";
 
             //se resetea, por eso no cargan todos los productos
             listaArticulosCarrito = new List<Dominio.Articulo>();
@@ -30,15 +30,15 @@ namespace carritoweb
                 listaArticulosCarrito.Add(negocio.busquedaId(id));
                 Session.Add("listaArticulosCarrito", listaArticulosCarrito);
             } 
-            listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
+            
 
 
             //price
 
             if (Request.QueryString["price"] != null)
             {
-                suma = Request.QueryString["price"].ToString();
-                Session.Add("price", suma);
+                val = Request.QueryString["price"].ToString();
+                Session.Add("price", val);
                 price.Text = "$" + Session["price"].ToString();
             }
             else
@@ -49,9 +49,7 @@ namespace carritoweb
             
 
             //btn-comprar
-            success.Visible = false;
-
-
+            success.Visible = false; //gracias por tu compra
 
 
             //icon DELETE
@@ -59,15 +57,26 @@ namespace carritoweb
             {
                 string id_string = Request.QueryString["delete"].ToString();
                 int id = Int32.Parse(id_string);
-                listaArticulosCarrito.Remove(negocio.busquedaId(id));
-                Session.Add("listaArticulosCarrito", listaArticulosCarrito);
+                //Articulo aux = new Articulo();
+                //aux = negocio.busquedaId(id);
+                foreach(Dominio.Articulo item in listaArticulosCarrito)
+                {
+                    if(item.Id==id)
+                    {
+                        listaArticulosCarrito.Remove(item);
+                    }               
+                }
+
+                Session.Add("listaArticulosCarrito", listaArticulosCarrito);              
             }
+
+
             listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
         }
 
         protected void comprar_Click(object sender, EventArgs e)
         {
-            success.Visible = true;
+            success.Visible = true; //gracias por tu compra
         }
 
 }
