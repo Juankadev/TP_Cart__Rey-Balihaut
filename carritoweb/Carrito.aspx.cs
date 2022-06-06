@@ -34,17 +34,35 @@ namespace carritoweb
 
 
             //price
+
             if (Request.QueryString["price"] != null)
             {
                 suma = Request.QueryString["price"].ToString();
                 Session.Add("price", suma);
+                price.Text = "$" + Session["price"].ToString();
             }
-
-            price.Text = "$" + Session["price"].ToString();
-
+            else
+            {
+                if(listaArticulosCarrito != null)
+                    price.Text = "$" + Session["price"].ToString();
+            }
+            
 
             //btn-comprar
-            success.Visible = false;        
+            success.Visible = false;
+
+
+
+
+            //icon DELETE
+            if (Request.QueryString["delete"] != null)
+            {
+                string id_string = Request.QueryString["delete"].ToString();
+                int id = Int32.Parse(id_string);
+                listaArticulosCarrito.Remove(negocio.busquedaId(id));
+                Session.Add("listaArticulosCarrito", listaArticulosCarrito);
+            }
+            listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
         }
 
         protected void comprar_Click(object sender, EventArgs e)
@@ -52,5 +70,5 @@ namespace carritoweb
             success.Visible = true;
         }
 
-    }
+}
 }

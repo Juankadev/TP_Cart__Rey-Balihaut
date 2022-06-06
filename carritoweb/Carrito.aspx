@@ -18,7 +18,7 @@
                      <img src="<%=item.ImagenArt%>" class="card-img-top" alt="...">
                      <h5 class="card-title"><%=item.NombreArt %></h5>
                      <p><strong>$<%=item.PrecioArt %></strong></p>
-                     <a href="Carrito.aspx?<%=item.Id%>" class="img-delete glyphicon glyphicon-remove" ></a>
+                     <a href="Carrito.aspx?delete=<%=item.Id%>" class="img-delete glyphicon glyphicon-remove" ></a>
                </div>
              <% 
              } %>
