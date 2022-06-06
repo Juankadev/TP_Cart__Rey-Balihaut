@@ -17,8 +17,8 @@
                <div class="cart-item">
                      <img src="<%=item.ImagenArt%>" class="card-img-top" alt="...">
                      <h5 class="card-title"><%=item.NombreArt %></h5>
-                     <p><strong>$<%=item.PrecioArt %></strong></p>                    
-                     <asp:ImageButton ID="ImageButton1" class="img-delete" runat="server" />
+                     <p><strong>$<%=item.PrecioArt %></strong></p>
+                     <a href="Carrito.aspx?<%=item.Id%>" class="img-delete glyphicon glyphicon-remove" ></a>
                </div>
              <% 
              } %>
