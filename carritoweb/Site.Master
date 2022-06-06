@@ -58,9 +58,8 @@
                         <li>
                             <a runat="server" href="~/Carrito">
                                <span class="glyphicon glyphicon-shopping-cart"></span>
-                                <span class="badge">
                                     <asp:Label ID="lblCart" runat="server" Text=""></asp:Label>
-                                </span>
+
                                 Carrito
                             </a>
                         </li>

@@ -29,24 +29,6 @@ namespace carritoweb
             } 
             
 
-            //price
-            if (Request.QueryString["price"] != null)
-            {
-                val = Request.QueryString["price"].ToString();
-                Session.Add("price", val);
-                price.Text = "$" + Session["price"].ToString();
-            }
-            else
-            {
-                if (listaArticulosCarrito.Count < 0) //Funciona pero CHEQUEAR, la lista se resetea..., probar con session a futuro
-                {
-                    price.Text = "$0";                 
-                }
-                else
-                {
-                    price.Text = "$" + Session["price"].ToString();
-                }
-            }
 
 
 
@@ -81,8 +63,33 @@ namespace carritoweb
 
             listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
             //cuento el producto agregado
-            Session.Add("contador", listaArticulosCarrito.Count);
-            contador.Text = Session["contador"].ToString();
+            if(listaArticulosCarrito != null)
+            {
+                Session.Add("contador", listaArticulosCarrito.Count);
+                contador.Text = Session["contador"].ToString();
+            }
+
+
+
+
+            //price
+            if (Request.QueryString["price"] != null)
+            {
+                val = Request.QueryString["price"].ToString();
+                Session.Add("price", val);
+                price.Text = "$" + Session["price"].ToString();
+            }
+            else
+            {
+                if (listaArticulosCarrito == null) //Funciona pero CHEQUEAR..., probar con session a futuro
+                {
+                    price.Text = "$0";
+                }
+                else
+                {
+                    price.Text = "$" + Session["price"].ToString();
+                }
+            }
         }
 
 

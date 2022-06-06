@@ -2,10 +2,13 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div style="background-color:#202020; position:fixed; margin-top:20px; z-index:20">
-        <h4 style="display:inline-block">Productos en Carrito: </h4>
-        <asp:Label ID="contador" runat="server" Text="0"></asp:Label>
+    <div style="width:70px;height:70px;border-radius:100%;background-color:#111; position:fixed; margin-top:40px; z-index:20">
+        <h4 style="text-align:center">
+            <span style="color:#6b31ff;font-size:40px;"  class="glyphicon glyphicon-shopping-cart"></span>
+        </h4>
+        <asp:Label ID="contador" style="font-size:20px;" class="badge" runat="server" Text="0"></asp:Label>
     </div>
+
 
     <div class="jumbotron" style="background-image: url(https://images.unsplash.com/photo-1580894894513-541e068a3e2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80); background-attachment:fixed;background-size:cover; background-repeat:none">
         <div style="background-color:rgba(0,0,0,0.5); width:500px; padding:20px; border-radius:5px">
@@ -60,7 +63,6 @@
                         <a class="btn-add" href="Carrito.aspx?id=<%=item.Id %>&price=<%=item.PrecioArt %>">
                             Añadir al Carrito
                         </a>
-                        
                     </div>
                 </div>
             <%}
