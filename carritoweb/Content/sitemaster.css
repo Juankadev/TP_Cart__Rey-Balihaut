@@ -211,3 +211,16 @@ a:hover {
     text-decoration: none;
     color: #fff
 }
+
+
+.container-categorias{
+    background-color:#202020;
+    width:150px;
+}
+#categorias-a{
+    text-align:left;
+    font-size:20px;
+}
+    #categorias-a:hover {
+        background-color: #6b31ff;
+    }

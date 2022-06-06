@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 
-    <div class="jumbotron" style="background-image: url(https://ideakreativa.net/wp-content/uploads/2021/11/mejores-all-in-one-para-disen%CC%83o.jpg); background-attachment:fixed;background-size:contain">
+    <div class="jumbotron" style="background-image: url(https://images.unsplash.com/photo-1580894894513-541e068a3e2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80); background-attachment:fixed;background-size:cover; background-repeat:none">
         <div style="background-color:rgba(0,0,0,0.5); width:500px; padding:20px; border-radius:5px">
             <h1 style="color:#6b31ff">Tienda Online</h1>
             <p style="color:#fff" class="lead">Añade los productos de tu interés al #Carrito.</p>
@@ -16,8 +16,19 @@
         </div>
     </div>
 
+
+ 
+       <div class="container-categorias" style="margin-bottom:50px">     
+           <h3>Categorias</h3>
+            <% foreach (Dominio.Categoria item in categorias)
+            {%>           
+               <a id="categorias-a" href="Default.aspx?<%=item.DescripcionCategoria%>"><%=item.DescripcionCategoria %></a>       
+            <%}
+            %>
+       </div>
+
+
     <asp:GridView style="display:none" ID="dgvListado" runat="server"></asp:GridView>
-    
 
      <div class="content-card">
 

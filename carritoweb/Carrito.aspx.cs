@@ -21,20 +21,18 @@ namespace carritoweb
             //se resetea, por eso no cargan todos los productos
             listaArticulosCarrito = new List<Dominio.Articulo>();
 
+            //Session.Add("listaAux",listaAux)=
 
             if (Request.QueryString["id"] != null)
             {
                 string id_string = Request.QueryString["id"].ToString();
-                int id = Int32.Parse(id_string);
-
+                int id = Int32.Parse(id_string);          
                 listaArticulosCarrito.Add(negocio.busquedaId(id));
                 Session.Add("listaArticulosCarrito", listaArticulosCarrito);
             } 
             
 
-
             //price
-
             if (Request.QueryString["price"] != null)
             {
                 val = Request.QueryString["price"].ToString();
@@ -57,8 +55,7 @@ namespace carritoweb
             {
                 string id_string = Request.QueryString["delete"].ToString();
                 int id = Int32.Parse(id_string);
-                //Articulo aux = new Articulo();
-                //aux = negocio.busquedaId(id);
+
                 foreach(Dominio.Articulo item in listaArticulosCarrito)
                 {
                     if(item.Id==id)
@@ -66,13 +63,14 @@ namespace carritoweb
                         listaArticulosCarrito.Remove(item);
                     }               
                 }
-
                 Session.Add("listaArticulosCarrito", listaArticulosCarrito);              
             }
 
 
             listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
         }
+
+
 
         protected void comprar_Click(object sender, EventArgs e)
         {
