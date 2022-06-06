@@ -41,7 +41,6 @@ namespace Negocio
             {
                 datos.cerrarConexion();
             }
-
         }
     }
 }

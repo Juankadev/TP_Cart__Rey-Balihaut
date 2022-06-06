@@ -22,7 +22,7 @@
            <h3>Categorias</h3>
             <% foreach (Dominio.Categoria item in categorias)
             {%>           
-               <a id="categorias-a" href="Default.aspx?<%=item.DescripcionCategoria%>"><%=item.DescripcionCategoria %></a>       
+               <a id="categorias-a" href="Default.aspx?categoria=<%=item.IdCategoria%>"><%=item.DescripcionCategoria %></a>       
             <%}
             %>
        </div>
@@ -43,7 +43,7 @@
                       <p class="card-text"><%=item.DescripcionArt %></p>
                       <p><strong>$<%=item.PrecioArt %></strong></p>                         
                         <a class="btn-add" href="Carrito.aspx?id=<%=item.Id %>&price=<%=item.PrecioArt %>">Añadir al Carrito</a>
-                        <!--<asp:Button ID="Button1" PostBack="true" OnClick="Button1_Click" class="btn-add" runat="server" Text="Añadir al Carrito" />-->
+                        
                     </div>
                 </div>
             <%}
