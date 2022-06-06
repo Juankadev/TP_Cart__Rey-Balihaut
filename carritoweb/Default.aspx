@@ -18,11 +18,22 @@
 
 
  
-       <div class="container-categorias" style="margin-bottom:50px">     
            <h3>Categorias</h3>
+       <div class="container-filtro" style="margin-bottom:50px">     
             <% foreach (Dominio.Categoria item in categorias)
             {%>           
-               <a id="categorias-a" href="Default.aspx?categoria=<%=item.IdCategoria%>"><%=item.DescripcionCategoria %></a>       
+               <a id="filtro-a" href="Default.aspx?categoria=<%=item.IdCategoria%>"><%=item.DescripcionCategoria %></a>       
+            <%}
+            %>
+       </div>
+
+
+
+           <h3>Marcas</h3>
+    <div class="container-filtro" style="margin-bottom:50px">     
+            <% foreach (Dominio.Marca item in marcas)
+            {%>           
+               <a id="filtro-a" href="Default.aspx?marca=<%=item.IdMarca%>"><%=item.DescripcionMarca %></a>       
             <%}
             %>
        </div>

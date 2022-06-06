@@ -13,26 +13,41 @@ namespace carritoweb
     {
         public List<Articulo> catalogo { get; set; }
         public List<Categoria> categorias { get; set; }
+        public List<Marca> marcas { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio art_negocio = new ArticuloNegocio();
             CategoriaNegocio cat_negocio = new CategoriaNegocio();
+            MarcaNegocio marca_negocio = new MarcaNegocio();
 
             if (!IsPostBack)
             {
                 //catalogo = art_negocio.listar();
-                categorias = cat_negocio.listar();
                 //Session.Add("catalogo", catalogo);
+                categorias = cat_negocio.listar();
                 Session.Add("categorias", categorias);
+                marcas = marca_negocio.listar();
+                Session.Add("marcas", marcas);
             }
          
+            //FILTRO CATEGORIAS
             if (Request.QueryString["categoria"] != null)
             {
                 string id_string = Request.QueryString["categoria"].ToString();
                 int id = Int32.Parse(id_string);
-                catalogo = art_negocio.listarFiltro(id);
+                catalogo = art_negocio.listarFiltroCat(id);
             }
             else{catalogo = art_negocio.listar();}
+
+
+            //FILTRO MARCAS
+            if (Request.QueryString["marca"] != null)
+            {
+                string id_string = Request.QueryString["marca"].ToString();
+                int id = Int32.Parse(id_string);
+                catalogo = art_negocio.listarFiltroMarca(id);
+            }
+            else { catalogo = art_negocio.listar(); }
 
 
             dgvListado.DataSource = catalogo;

@@ -213,14 +213,16 @@ a:hover {
 }
 
 
-.container-categorias{
-    background-color:#202020;
-    width:150px;
+.container-filtro {
+    background-color: #6b31ff;
+    padding:10px;
+    display:flex;
+    align-items:center;
 }
-#categorias-a{
+#filtro-a{
     text-align:left;
     font-size:20px;
 }
-    #categorias-a:hover {
-        background-color: #6b31ff;
+    #filtro-a:hover {
+        background-color: #FF6E4A;
     }
