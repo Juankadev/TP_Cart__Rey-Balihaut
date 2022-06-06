@@ -2,6 +2,12 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
+    <div style="background-color:#202020; position:fixed; margin-top:20px; z-index:20">
+        <h4 style="display:inline-block">Productos en Carrito: </h4>
+        <asp:Label ID="contador" runat="server" Text="0"></asp:Label>
+    </div>
+
     <h2 class="cart-title"><%: Title %>.</h2>
 
     <h3>Tus productos añadidos.</h3>

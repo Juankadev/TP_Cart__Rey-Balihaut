@@ -9,13 +9,12 @@ namespace carritoweb
 {
     public partial class SiteMaster : MasterPage
     {
-        //public string carrito { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            //string contador;
             //lblCart.Text = Session["cant"].ToString();
-
-            //Session.Add("lblCart", lblCart);
-            //Response.Redirect("Default.aspx");
+            //contador = lblCart.Text;
+            //Session.Add("lblCart", contador);
         }
     }
 }

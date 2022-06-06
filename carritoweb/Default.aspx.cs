@@ -28,6 +28,8 @@ namespace carritoweb
                 Session.Add("categorias", categorias);
                 marcas = marca_negocio.listar();
                 Session.Add("marcas", marcas);
+                //Session.Add("contadorDefault", "0");
+                //contador.Text = Session["contador"].ToString();
             }
          
             //FILTRO CATEGORIAS
@@ -53,11 +55,6 @@ namespace carritoweb
             dgvListado.DataSource = catalogo;
             dgvListado.DataBind();
 
-            //filtro_categorias.DataSource = categorias;
-            /*Categoria i = new Categoria();
-            i.IdCategoria = 2;
-            i.DescripcionCategoria = "prueba";
-            filtro_categorias.Items.Add(i.ToString());*/
         }
     }
 }

@@ -12,16 +12,13 @@ namespace carritoweb
     public partial class Contact : Page
     {      
         public List<Articulo> listaArticulosCarrito { get; set; }
-        //public List<Articulo> listaAux { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             ArticuloNegocio negocio = new ArticuloNegocio();
-            string val="";
+            string val="0";
 
-            //se resetea, por eso no cargan todos los productos
             listaArticulosCarrito = new List<Dominio.Articulo>();
-
-            //Session.Add("listaAux",listaAux)=
 
             if (Request.QueryString["id"] != null)
             {
@@ -41,10 +38,17 @@ namespace carritoweb
             }
             else
             {
-                if(listaArticulosCarrito != null)
+                if (listaArticulosCarrito.Count < 0) //Funciona pero CHEQUEAR, la lista se resetea..., probar con session a futuro
+                {
+                    price.Text = "$0";                 
+                }
+                else
+                {
                     price.Text = "$" + Session["price"].ToString();
+                }
             }
-            
+
+
 
             //btn-comprar
             success.Visible = false; //gracias por tu compra
@@ -61,6 +65,14 @@ namespace carritoweb
                     if(item.Id==id)
                     {
                         listaArticulosCarrito.Remove(item);
+
+                        string nuevoprice = Session["price"].ToString();
+                        decimal valor = Int32.Parse(nuevoprice);
+                        valor = valor - item.PrecioArt;
+                        string guardar = valor.ToString();
+                        Session.Add("price", guardar);
+                        price.Text = "$" + guardar;
+                        //descuento del total el producto eliminado
                     }               
                 }
                 Session.Add("listaArticulosCarrito", listaArticulosCarrito);              
@@ -68,6 +80,9 @@ namespace carritoweb
 
 
             listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
+            //cuento el producto agregado
+            Session.Add("contador", listaArticulosCarrito.Count);
+            contador.Text = Session["contador"].ToString();
         }
 
 
