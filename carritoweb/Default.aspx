@@ -25,7 +25,7 @@
 
 
  
-           <h3>Categorias</h3>
+           <h3 class="titulo">Categorias</h3>
        <div class="container-filtro" style="margin-bottom:50px">     
             <% foreach (Dominio.Categoria item in categorias)
             {%>           
@@ -36,7 +36,7 @@
 
 
 
-           <h3>Marcas</h3>
+           <h3 id="titulo">Marcas</h3>
     <div class="container-filtro" style="margin-bottom:50px">     
             <% foreach (Dominio.Marca item in marcas)
             {%>           

@@ -41,19 +41,15 @@ namespace carritoweb
                 string id_string = Request.QueryString["categoria"].ToString();
                 int id = Int32.Parse(id_string);
                 catalogo = art_negocio.listarFiltroCat(id);
-            }
-            else{catalogo = art_negocio.listar();}
-
-
+            }           
             //FILTRO MARCAS
-            if (Request.QueryString["marca"] != null)
+            else if (Request.QueryString["marca"] != null)
             {
                 string id_string = Request.QueryString["marca"].ToString();
                 int id = Int32.Parse(id_string);
                 catalogo = art_negocio.listarFiltroMarca(id);
             }
             else { catalogo = art_negocio.listar(); }
-
 
             dgvListado.DataSource = catalogo;
             dgvListado.DataBind();
