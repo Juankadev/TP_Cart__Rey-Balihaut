@@ -28,11 +28,13 @@ namespace carritoweb
                 Session.Add("categorias", categorias);
                 marcas = marca_negocio.listar();
                 Session.Add("marcas", marcas);
-   
-                //List<Articulo> listaArticulosCarrito = new List<Articulo>();
-                //listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
-                //Session.Add("contador", listaArticulosCarrito.Count);
-                //contador.Text = Session["contador"].ToString();
+    
+                if(Session["listaArticulosCarrito"]!=null) {
+                    List<Articulo> listaArticulosCarrito = new List<Articulo>();
+                    listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
+                    Session.Add("contador", listaArticulosCarrito.Count);
+                    contador.Text = Session["contador"].ToString();
+                }
             }
 
             //FILTRO CATEGORIAS
