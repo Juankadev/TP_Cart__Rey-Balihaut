@@ -2,9 +2,10 @@
 
 WEB
 --------
--Detalles: Cuenta productos solo estando en la pagina carrito
--Se puede agregar solo un producto
--No elimina el precio en la facturacion al eliminar un producto
+-Detalles:
+No elimina el precio en la facturacion al eliminar un producto
+Cuando eliminas, se eliminan todos.
+No calcula precio en total
 
 
 DESKTOP
