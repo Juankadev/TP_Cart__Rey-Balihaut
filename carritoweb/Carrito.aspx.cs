@@ -14,9 +14,8 @@ namespace carritoweb
         public List<Articulo> listaArticulosCarrito { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            price.Text = "$0";
             ArticuloNegocio negocio = new ArticuloNegocio();
-            string valor;
 
             listaArticulosCarrito = new List<Dominio.Articulo>();
 
@@ -48,11 +47,13 @@ namespace carritoweb
             {
                 int id = Int32.Parse(Request.QueryString["delete"].ToString());
                 int index = 0;
+                decimal precio=0;
                 foreach (Dominio.Articulo item in listaArticulosCarrito)
                 {               
                     if(id==item.Id)
                     {
-                        index = index;                   
+                        index = index;
+                        precio = item.PrecioArt;
                         break;
                     }
                     index++;
@@ -63,15 +64,11 @@ namespace carritoweb
                 Session.Add("listaArticulosCarrito", listaArticulosCarrito);
 
 
-
                 //descuento del total el producto eliminado
-
-                //string nuevoprice = Session["price"].ToString();
-                //decimal valor2 = Int32.Parse(nuevoprice);
-                //valor2 = valor2 - item.PrecioArt;
-                //string guardar = valor2.ToString();
-                //Session.Add("price", guardar);
-                //price.Text = "$" + guardar;
+                decimal acumulado = Decimal.Parse(Session["price"].ToString());
+                acumulado = acumulado - precio;
+                Session.Add("price", acumulado.ToString());
+                price.Text = "$" + acumulado.ToString();
             }
 
 
@@ -89,14 +86,13 @@ namespace carritoweb
             //price
             if (Request.QueryString["price"] != null)
             {
-                valor = Request.QueryString["price"].ToString();
+                string valor = Request.QueryString["price"].ToString();
 
                 if(Session["price"]!=null)
                 {
-                    string valorString = Session["price"].ToString();
-                    decimal acumulado = decimal.Parse(valorString);
-                    valor = (decimal.Parse(valor) + acumulado).ToString();
-                    Session.Add("price", valor);
+                    decimal acumulado = Decimal.Parse(Session["price"].ToString());
+                    acumulado = acumulado + Decimal.Parse(valor);
+                    Session.Add("price", acumulado.ToString());
                 }
                 else
                 {
