@@ -173,10 +173,10 @@ h2.cart-title {
 
 .img-delete {
     border-radius: 100%;
-    padding: 6px;
-    border: 2px solid darkred;
+    /*padding: 6px;*/
+    /*border: 0px solid darkred;*/
     transition: .3s;
-    width:30px;
+    width:25px;
 }
 
 .img-delete:hover {
@@ -184,6 +184,8 @@ h2.cart-title {
         transform:scale(1.2);
         cursor: pointer;
     }
+
+bi
 
 .btn-añadir {
     background-color: #6b31ff;

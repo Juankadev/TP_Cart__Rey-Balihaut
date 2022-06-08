@@ -14,7 +14,6 @@ namespace carritoweb
         public List<Articulo> listaArticulosCarrito { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            price.Text = "$0";
             ArticuloNegocio negocio = new ArticuloNegocio();
 
             listaArticulosCarrito = new List<Dominio.Articulo>();
@@ -39,6 +38,45 @@ namespace carritoweb
 
             //btn-comprar
             //success.Visible = false; //gracias por tu compra
+
+
+
+            //price
+            if (Request.QueryString["price"] != null)
+            {
+                string valor = Request.QueryString["price"].ToString();
+
+                if (Session["price"] != null)
+                {
+                    decimal acumulado = Decimal.Parse(Session["price"].ToString());
+                    acumulado = acumulado + Decimal.Parse(valor);
+                    Session.Add("price", acumulado.ToString());
+                }
+                else
+                {
+                    Session.Add("price", valor);
+                }
+
+                //string format = Session["price"].ToString();
+                //format = String.Format("{0:00}");
+                price.Text = "$" + Session["price"].ToString();
+            }
+            else
+            {
+                listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
+                if (listaArticulosCarrito == null) //Funciona pero CHEQUEAR..., probar con session a futuro
+                {
+                    price.Text = "$0";
+                }
+                else
+                {
+                    price.Text = "$" + Session["price"].ToString();
+                }
+            }
+
+
+
+
 
 
             listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
@@ -83,38 +121,7 @@ namespace carritoweb
 
 
 
-            //price
-            if (Request.QueryString["price"] != null)
-            {
-                string valor = Request.QueryString["price"].ToString();
-
-                if(Session["price"]!=null)
-                {
-                    decimal acumulado = Decimal.Parse(Session["price"].ToString());
-                    acumulado = acumulado + Decimal.Parse(valor);
-                    Session.Add("price", acumulado.ToString());
-                }
-                else
-                {
-                    Session.Add("price", valor);
-                }
-
-                //string format = Session["price"].ToString();
-                //format = String.Format("{0:00}");
-                price.Text = "$" + Session["price"].ToString();
-            }
-            else
-            {
-                listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
-                if (listaArticulosCarrito == null) //Funciona pero CHEQUEAR..., probar con session a futuro
-                {
-                    price.Text = "$0";
-                }
-                else
-                {
-                    price.Text = "$" + Session["price"].ToString();
-                }
-            }
+            
         }
 
 

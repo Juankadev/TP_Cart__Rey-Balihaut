@@ -18,7 +18,7 @@
 
         <div class="content-items">  
 
-           <%if(listaArticulosCarrito!=null || listaArticulosCarrito.Count==0){%> 
+           <%if(listaArticulosCarrito!=null){%> 
  
             <% foreach (Dominio.Articulo item in listaArticulosCarrito)
             { %> 
@@ -26,7 +26,7 @@
                      <img src="<%=item.ImagenArt%>" class="card-img-top" alt="...">
                      <h5 class="card-title" id="titulo"><%=item.NombreArt %></h5>
                      <p id="titulo"><strong>$<%=item.PrecioArt %></strong></p>
-                     <a href="Carrito.aspx?delete=<%=item.Id%>" class="img-delete glyphicon glyphicon-remove" ></a>
+                     <a href="Carrito.aspx?delete=<%=item.Id%>" class="img-delete bi bi-x-circle" ></a>
                </div>
              <% 
              } %>
