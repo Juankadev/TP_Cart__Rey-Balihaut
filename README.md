@@ -3,9 +3,8 @@
 WEB
 --------
 -Detalles:
-No elimina el precio en la facturacion al eliminar un producto
-Cuando eliminas, se eliminan todos.
-No calcula precio en total
+No descuenta bien el precio del total al eliminar un producto
+
 
 
 DESKTOP
