@@ -29,48 +29,54 @@ namespace carritoweb
                 {
                     listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
                 }
-                else
-                {
-                }
+    
                 listaArticulosCarrito.Add(negocio.busquedaId(id));
                 Session.Add("listaArticulosCarrito", listaArticulosCarrito);
-            } 
-            
+            }
+
 
 
 
 
             //btn-comprar
-            success.Visible = false; //gracias por tu compra
-
-
-            //icon DELETE
-            if (Request.QueryString["delete"] != null)
-            {
-                string id_string = Request.QueryString["delete"].ToString();
-                int id = Int32.Parse(id_string);
-
-                foreach(Dominio.Articulo item in listaArticulosCarrito)
-                {
-                    if(item.Id==id)
-                    {
-                        listaArticulosCarrito.Remove(item);
-
-                        string nuevoprice = Session["price"].ToString();
-                        decimal valor2 = Int32.Parse(nuevoprice);
-                        valor2 = valor2 - item.PrecioArt;
-                        string guardar = valor2.ToString();
-                        Session.Add("price", guardar);
-                        price.Text = "$" + guardar;
-                        //descuento del total el producto eliminado
-                    }               
-                }
-                Session.Add("listaArticulosCarrito", listaArticulosCarrito);              
-            }
+            //success.Visible = false; //gracias por tu compra
 
 
             listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
+            //icon DELETE
+            if (Request.QueryString["delete"] != null)
+            {
+                int id = Int32.Parse(Request.QueryString["delete"].ToString());
+                int index = 0;
+                foreach (Dominio.Articulo item in listaArticulosCarrito)
+                {               
+                    if(id==item.Id)
+                    {
+                        index = index;                   
+                        break;
+                    }
+                    index++;
+                }
+
+                listaArticulosCarrito.RemoveAt(index);
+                //listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
+                Session.Add("listaArticulosCarrito", listaArticulosCarrito);
+
+
+
+                //descuento del total el producto eliminado
+
+                //string nuevoprice = Session["price"].ToString();
+                //decimal valor2 = Int32.Parse(nuevoprice);
+                //valor2 = valor2 - item.PrecioArt;
+                //string guardar = valor2.ToString();
+                //Session.Add("price", guardar);
+                //price.Text = "$" + guardar;
+            }
+
+
             //cuento el producto agregado
+            listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
             if(listaArticulosCarrito != null)
             {
                 Session.Add("contador", listaArticulosCarrito.Count);
@@ -97,10 +103,13 @@ namespace carritoweb
                     Session.Add("price", valor);
                 }
 
+                //string format = Session["price"].ToString();
+                //format = String.Format("{0:00}");
                 price.Text = "$" + Session["price"].ToString();
             }
             else
             {
+                listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
                 if (listaArticulosCarrito == null) //Funciona pero CHEQUEAR..., probar con session a futuro
                 {
                     price.Text = "$0";
@@ -116,7 +125,7 @@ namespace carritoweb
 
         protected void comprar_Click(object sender, EventArgs e)
         {
-            success.Visible = true; //gracias por tu compra
+            //success.Visible = true; //gracias por tu compra
         }
 
 }

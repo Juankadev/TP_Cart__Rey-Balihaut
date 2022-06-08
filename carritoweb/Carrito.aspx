@@ -18,7 +18,7 @@
 
         <div class="content-items">  
 
-           <%if(listaArticulosCarrito!=null || listaArticulosCarrito.Count()==0){%> 
+           <%if(listaArticulosCarrito!=null || listaArticulosCarrito.Count==0){%> 
  
             <% foreach (Dominio.Articulo item in listaArticulosCarrito)
             { %> 
