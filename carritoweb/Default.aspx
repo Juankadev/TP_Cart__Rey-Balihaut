@@ -12,7 +12,7 @@
 
     <div class="jumbotron" style="background-image: url(https://images.unsplash.com/photo-1580894894513-541e068a3e2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80); background-attachment:fixed;background-size:cover; background-repeat:none">
         <div style="background-color:rgba(0,0,0,0.5); width:500px; padding:20px; border-radius:5px">
-            <h1 style="color:#6b31ff">Tienda Online</h1>
+            <h1>Tienda Online</h1>
             <p style="color:#fff" class="lead">Añade los productos de tu interés al #Carrito.</p>
             <p>
                 <a runat="server" class="btn btn-primary btn-lg" href="~/Carrito">

@@ -35,7 +35,7 @@ body {
     }
 
 .btn.btn-primary.btn-lg {
-    background-color: #6b31ff;
+    background-color:#FF6E4A;
     border: 0px solid #fff;
     transition: 0.6s;
 }
@@ -44,6 +44,12 @@ body {
         box-shadow: 0 0 4px #fff
     }
 
+
+h1{
+    color:#fff;
+    font-weight:bold;
+    font-size:4rem;
+}
 
 .card {
     width: 20%;

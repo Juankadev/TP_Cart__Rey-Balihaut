@@ -13,7 +13,7 @@
     <h2 class="cart-title" id="titulo"><%: Title %>.</h2>
 
     <h3 id="titulo">Tus productos añadidos.</h3>
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+  
     <div class="content-cart">
 
         <div class="content-items">  
@@ -32,7 +32,7 @@
              } %>
            <%}
             else{%> 
-            <h3>Tu Carrito está Vacio</h3>
+            <h3 id="titulo">Tu Carrito está Vacio</h3>
              <%}%> 
             
         </div>

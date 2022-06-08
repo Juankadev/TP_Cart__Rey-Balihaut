@@ -53,11 +53,11 @@
                 </div>
                 <div class="">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">
+                        <li style="display:inline-block"><a runat="server" href="~/" style="display:inline-block">
                             <span class="glyphicon glyphicon-home"></span>
                             Inicio</a></li>
-                        <li>
-                            <a runat="server" href="~/Carrito">
+                        <li style="display:inline-block">
+                            <a runat="server" href="~/Carrito" style="display:inline-block">
                                <span class="glyphicon glyphicon-shopping-cart"></span>
                                     <asp:Label ID="lblCart" runat="server" Text=""></asp:Label>
 
@@ -76,7 +76,7 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
+            <footer id="titulo">
                 <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
             </footer>
         </div>
