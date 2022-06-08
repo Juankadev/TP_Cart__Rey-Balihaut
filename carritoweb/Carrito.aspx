@@ -3,16 +3,16 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div style="width:70px;height:70px;border-radius:100%;background-color:#111; position:fixed; margin-top:40px; z-index:20">
+    <div style="width:100px;height:100px;border-radius:100%;background-color:#111; position:fixed; margin-top:240px; z-index:20">
         <h4 style="text-align:center">
-            <span style="color:#6b31ff;font-size:40px;"  class="glyphicon glyphicon-shopping-cart"></span>
+            <img style="width:60px; position:relative;top:20px" src="https://i.pinimg.com/originals/eb/da/b9/ebdab98415d1cfe99877d909412acdfa.png"/>
         </h4>
-        <asp:Label ID="contador" style="font-size:20px;" class="badge" runat="server" Text="0"></asp:Label>
+        <asp:Label ID="contador" style="color:#fff;font-size:25px;" class="badge" runat="server" Text="0"></asp:Label>
     </div>
 
-    <h2 class="cart-title"><%: Title %>.</h2>
+    <h2 class="cart-title" id="titulo"><%: Title %>.</h2>
 
-    <h3>Tus productos añadidos.</h3>
+    <h3 id="titulo">Tus productos añadidos.</h3>
     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     <div class="content-cart">
 
@@ -22,10 +22,10 @@
  
             <% foreach (Dominio.Articulo item in listaArticulosCarrito)
             { %> 
-               <div class="cart-item">
+               <div class="cart-item" id="titulo">
                      <img src="<%=item.ImagenArt%>" class="card-img-top" alt="...">
-                     <h5 class="card-title"><%=item.NombreArt %></h5>
-                     <p><strong>$<%=item.PrecioArt %></strong></p>
+                     <h5 class="card-title" id="titulo"><%=item.NombreArt %></h5>
+                     <p id="titulo"><strong>$<%=item.PrecioArt %></strong></p>
                      <a href="Carrito.aspx?delete=<%=item.Id%>" class="img-delete glyphicon glyphicon-remove" ></a>
                </div>
              <% 
@@ -41,10 +41,10 @@
 
 
     <div class="resumen">
-        <h3>Resumen</h3>
+        <h3 id="titulo">Resumen</h3>
         <div class="total">
-            <h5>Total</h5>
-            <asp:Label ID="price" runat="server" Text="$0"></asp:Label>
+            <h5 id="titulo">Total</h5>
+            <asp:Label ID="price" style="color:#fff" runat="server" Text="$0"></asp:Label>
         </div>
         <asp:Button ID="comprar" OnClick="comprar_Click" class="btn btn-success" runat="server" Text="Comprar" />
         <asp:Label ID="success" class="lbl-comprar" runat="server" Text="Gracias por tu compra!."></asp:Label>
