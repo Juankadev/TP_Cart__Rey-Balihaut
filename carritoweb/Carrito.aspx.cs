@@ -23,7 +23,12 @@ namespace carritoweb
             if (Request.QueryString["id"] != null)
             {
                 string id_string = Request.QueryString["id"].ToString();
-                int id = Int32.Parse(id_string);          
+                int id = Int32.Parse(id_string);   
+                
+                if(Session["listaArticulosCarrito"]!=null)
+                {
+                    listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
+                }
                 listaArticulosCarrito.Add(negocio.busquedaId(id));
                 Session.Add("listaArticulosCarrito", listaArticulosCarrito);
             } 
