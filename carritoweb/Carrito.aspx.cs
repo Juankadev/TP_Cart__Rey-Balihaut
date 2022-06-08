@@ -16,7 +16,7 @@ namespace carritoweb
         {
            
             ArticuloNegocio negocio = new ArticuloNegocio();
-            string val="0";
+            string valor;
 
             listaArticulosCarrito = new List<Dominio.Articulo>();
 
@@ -28,6 +28,9 @@ namespace carritoweb
                 if(Session["listaArticulosCarrito"]!=null)
                 {
                     listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
+                }
+                else
+                {
                 }
                 listaArticulosCarrito.Add(negocio.busquedaId(id));
                 Session.Add("listaArticulosCarrito", listaArticulosCarrito);
@@ -54,9 +57,9 @@ namespace carritoweb
                         listaArticulosCarrito.Remove(item);
 
                         string nuevoprice = Session["price"].ToString();
-                        decimal valor = Int32.Parse(nuevoprice);
-                        valor = valor - item.PrecioArt;
-                        string guardar = valor.ToString();
+                        decimal valor2 = Int32.Parse(nuevoprice);
+                        valor2 = valor2 - item.PrecioArt;
+                        string guardar = valor2.ToString();
                         Session.Add("price", guardar);
                         price.Text = "$" + guardar;
                         //descuento del total el producto eliminado
@@ -80,8 +83,20 @@ namespace carritoweb
             //price
             if (Request.QueryString["price"] != null)
             {
-                val = Request.QueryString["price"].ToString();
-                Session.Add("price", val);
+                valor = Request.QueryString["price"].ToString();
+
+                if(Session["price"]!=null)
+                {
+                    string valorString = Session["price"].ToString();
+                    decimal acumulado = decimal.Parse(valorString);
+                    valor = (decimal.Parse(valor) + acumulado).ToString();
+                    Session.Add("price", valor);
+                }
+                else
+                {
+                    Session.Add("price", valor);
+                }
+
                 price.Text = "$" + Session["price"].ToString();
             }
             else

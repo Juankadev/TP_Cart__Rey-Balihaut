@@ -18,7 +18,7 @@
 
         <div class="content-items">  
 
-           <%if(listaArticulosCarrito!=null){%> 
+           <%if(listaArticulosCarrito!=null || listaArticulosCarrito.Count()==0){%> 
  
             <% foreach (Dominio.Articulo item in listaArticulosCarrito)
             { %> 
@@ -46,8 +46,8 @@
             <h5 id="titulo">Total</h5>
             <asp:Label ID="price" style="color:#fff" runat="server" Text="$0"></asp:Label>
         </div>
-        <asp:Button ID="comprar" OnClick="comprar_Click" class="btn btn-success" runat="server" Text="Comprar" />
-        <asp:Label ID="success" class="lbl-comprar" runat="server" Text="Gracias por tu compra!."></asp:Label>
+        <!--<asp:Button ID="comprar" OnClick="comprar_Click" class="btn btn-success" runat="server" Text="Comprar" />-->
+        <!--<asp:Label ID="success" class="lbl-comprar" runat="server" Text="Gracias por tu compra!."></asp:Label>-->
     </div>
 
     </div>
