@@ -83,12 +83,6 @@ namespace WinFormApp1
         }
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
         {
-            if (dgvListado.RowCount <= 0)
-            {
-                MessageBox.Show("No hay articulos existentes, agregue un articulo");
-                return;
-            }
-
             SearchForm form = new SearchForm();
             form.ShowDialog();
             List<Articulo> newProductsList = form.GetFilteredList();

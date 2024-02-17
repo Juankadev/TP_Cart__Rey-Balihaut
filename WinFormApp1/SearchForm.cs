@@ -23,16 +23,16 @@ namespace WinFormApp1
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             //string code = txtCodigo.Text;
-            //string name = txtNombre.Text;
-            string description = txtDesc.Text;
+            string name = txtNombre.Text.ToUpper();
+            //string description = txtDesc.Text;
             //decimal price = txtPrecio.Value;
 
             List<Articulo> list = new ArticuloNegocio().listar();
 
             try
             {
-                if (!string.IsNullOrEmpty(description))
-                    filteredList = list.FindAll(a => a.DescripcionArt.Contains(description));
+                if (!string.IsNullOrEmpty(name))
+                    filteredList = list.FindAll(a => a.NombreArt.ToUpper().Contains(name));
 
 
                 ////combinaciones codigo

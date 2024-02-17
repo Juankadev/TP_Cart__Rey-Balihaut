@@ -53,6 +53,7 @@
             this.lblCodigo.Size = new System.Drawing.Size(92, 29);
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Codigo";
+            this.lblCodigo.Visible = false;
             // 
             // lblNombre
             // 
@@ -77,6 +78,7 @@
             this.lblDesc.Size = new System.Drawing.Size(141, 29);
             this.lblDesc.TabIndex = 2;
             this.lblDesc.Text = "Descripcion";
+            this.lblDesc.Visible = false;
             // 
             // lblPrecio
             // 
@@ -89,6 +91,7 @@
             this.lblPrecio.Size = new System.Drawing.Size(83, 29);
             this.lblPrecio.TabIndex = 3;
             this.lblPrecio.Text = "Precio";
+            this.lblPrecio.Visible = false;
             // 
             // btnBuscar
             // 
@@ -117,16 +120,15 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(194, 112);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(217, 26);
             this.txtCodigo.TabIndex = 6;
+            this.txtCodigo.Visible = false;
             // 
             // txtNombre
             // 
-            this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(194, 152);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombre.Name = "txtNombre";
@@ -140,17 +142,18 @@
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(217, 26);
             this.txtDesc.TabIndex = 8;
+            this.txtDesc.Visible = false;
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Enabled = false;
             this.txtPrecio.Location = new System.Drawing.Point(194, 234);
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(219, 26);
             this.txtPrecio.TabIndex = 9;
+            this.txtPrecio.Visible = false;
             // 
-            // frmBusqueda
+            // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -168,7 +171,8 @@
             this.Controls.Add(this.lblCodigo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "frmBusqueda";
+            this.MaximizeBox = false;
+            this.Name = "SearchForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmBusqueda";
             ((System.ComponentModel.ISupportInitialize)(this.txtPrecio)).EndInit();

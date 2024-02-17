@@ -36,7 +36,6 @@ namespace WinFormApp1
             this.toolAgregar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolEliminar = new System.Windows.Forms.ToolStripButton();
-            this.toolDetalle = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.pbArticulo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
@@ -81,7 +80,6 @@ namespace WinFormApp1
             this.toolAgregar,
             this.toolStripButton2,
             this.toolEliminar,
-            this.toolDetalle,
             this.toolStripDropDownButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -120,15 +118,6 @@ namespace WinFormApp1
             this.toolEliminar.Text = "Eliminar";
             this.toolEliminar.Click += new System.EventHandler(this.toolEliminar_Click);
             // 
-            // toolDetalle
-            // 
-            this.toolDetalle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.toolDetalle.Image = global::WinFormApp1.Properties.Resources.detalle;
-            this.toolDetalle.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolDetalle.Name = "toolDetalle";
-            this.toolDetalle.Size = new System.Drawing.Size(114, 35);
-            this.toolDetalle.Text = "Detalle";
-            // 
             // toolStripDropDownButton1
             // 
             this.toolStripDropDownButton1.ForeColor = System.Drawing.SystemColors.Control;
@@ -141,12 +130,12 @@ namespace WinFormApp1
             // 
             // pbArticulo
             // 
-            this.pbArticulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbArticulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbArticulo.Location = new System.Drawing.Point(1035, 149);
             this.pbArticulo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbArticulo.Name = "pbArticulo";
             this.pbArticulo.Size = new System.Drawing.Size(488, 445);
-            this.pbArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbArticulo.TabIndex = 1;
             this.pbArticulo.TabStop = false;
             // 
@@ -163,6 +152,7 @@ namespace WinFormApp1
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.Name = "ListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de Articulos";
@@ -184,7 +174,6 @@ namespace WinFormApp1
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolEliminar;
-        private System.Windows.Forms.ToolStripButton toolDetalle;
         private System.Windows.Forms.ToolStripButton toolAgregar;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
     }
