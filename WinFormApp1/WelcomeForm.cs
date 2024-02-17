@@ -17,10 +17,10 @@ namespace WinFormApp1
             InitializeComponent();
         }
 
-        private void btnListar_Click(object sender, EventArgs e)
+        private void btnIniciar_Click(object sender, EventArgs e)
         {
-            frmListado ventana = new frmListado();
-            ventana.ShowDialog();
+            this.Hide();
+            new ListForm().ShowDialog();
         }
     }
 }
