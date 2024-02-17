@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
@@ -14,7 +8,7 @@ namespace WinFormApp1
 {
     public partial class ListForm : Form
     {
-        private List<Articulo> productsList;
+        private List<Article> productsList;
         public ListForm()
         {
             InitializeComponent();
@@ -25,8 +19,8 @@ namespace WinFormApp1
         }
         private void dgvListado_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo selected = (Articulo)dgvListado.CurrentRow.DataBoundItem;
-            LoadImage(selected.ImagenArt);
+            Article selected = (Article)dgvListado.CurrentRow.DataBoundItem;
+            LoadImage(selected.Image);
         }
         private void LoadImage(string Imagen)
         {
@@ -39,19 +33,19 @@ namespace WinFormApp1
                 pbArticulo.LoadAsync("https://i.seadn.io/gae/OGpebYaykwlc8Tbk-oGxtxuv8HysLYKqw-FurtYql2UBd_q_-ENAwDY82PkbNB68aTkCINn6tOhpA8pF5SAewC2auZ_44Q77PcOo870?auto=format&dpr=1&w=1400&fr=1");
             }
         }
-        private void SetGridView(List<Articulo> list = null)
+        private void SetGridView(List<Article> list = null)
         {
             try
             {
                 dgvListado.DataSource = 
                     list == null 
-                    ? productsList = new ArticuloNegocio().listar() 
+                    ? productsList = new ArticleRepository().GetAll() 
                     : productsList = list;
 
                 HiddenColumns();
 
                 if (dgvListado.RowCount > 0)
-                    LoadImage(productsList[0].ImagenArt);                 
+                    LoadImage(productsList[0].Image);                 
             }
             catch (Exception ex)
             {
@@ -85,7 +79,7 @@ namespace WinFormApp1
         {
             SearchForm form = new SearchForm();
             form.ShowDialog();
-            List<Articulo> newProductsList = form.GetFilteredList();
+            List<Article> newProductsList = form.GetFilteredList();
             SetGridView(newProductsList);
         }
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -98,7 +92,7 @@ namespace WinFormApp1
                     return;
                 }
 
-                Articulo selected = (Articulo)dgvListado.CurrentRow.DataBoundItem;
+                Article selected = (Article)dgvListado.CurrentRow.DataBoundItem;
                 CreateForm form = new CreateForm(selected);
                 form.ShowDialog();
                 SetGridView();

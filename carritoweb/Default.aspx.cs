@@ -11,27 +11,27 @@ namespace carritoweb
 {
     public partial class _Default : Page
     {
-        public List<Articulo> catalogo { get; set; }
-        public List<Categoria> categorias { get; set; }
-        public List<Marca> marcas { get; set; }
+        public List<Article> catalogo { get; set; }
+        public List<Category> categorias { get; set; }
+        public List<Brand> marcas { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio art_negocio = new ArticuloNegocio();
-            CategoriaNegocio cat_negocio = new CategoriaNegocio();
-            MarcaNegocio marca_negocio = new MarcaNegocio();
+            ArticleRepository art_negocio = new ArticleRepository();
+            CategoryRepository cat_negocio = new CategoryRepository();
+            BrandRepository marca_negocio = new BrandRepository();
 
             if (!IsPostBack)
             {
                 //catalogo = art_negocio.listar();
                 //Session.Add("catalogo", catalogo);
-                categorias = cat_negocio.listar();
+                categorias = cat_negocio.GetAll();
                 Session.Add("categorias", categorias);
-                marcas = marca_negocio.listar();
+                marcas = marca_negocio.GetAll();
                 Session.Add("marcas", marcas);
     
                 if(Session["listaArticulosCarrito"]!=null) {
-                    List<Articulo> listaArticulosCarrito = new List<Articulo>();
-                    listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
+                    List<Article> listaArticulosCarrito = new List<Article>();
+                    listaArticulosCarrito = (List<Article>)Session["listaArticulosCarrito"];
                     Session.Add("contador", listaArticulosCarrito.Count);
                     contador.Text = Session["contador"].ToString();
                 }
@@ -42,16 +42,16 @@ namespace carritoweb
             {
                 string id_string = Request.QueryString["categoria"].ToString();
                 int id = Int32.Parse(id_string);
-                catalogo = art_negocio.listarFiltroCat(id);
+                catalogo = art_negocio.GetAllByCategory(id);
             }           
             //FILTRO MARCAS
             else if (Request.QueryString["marca"] != null)
             {
                 string id_string = Request.QueryString["marca"].ToString();
                 int id = Int32.Parse(id_string);
-                catalogo = art_negocio.listarFiltroMarca(id);
+                catalogo = art_negocio.GetAllByBrand(id);
             }
-            else { catalogo = art_negocio.listar(); }
+            else { catalogo = art_negocio.GetAll(); }
 
             dgvListado.DataSource = catalogo;
             dgvListado.DataBind();

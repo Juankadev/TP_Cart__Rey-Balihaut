@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
@@ -14,7 +8,7 @@ namespace WinFormApp1
 {
     public partial class SearchForm : Form
     {
-        List<Articulo> filteredList = null;
+        List<Article> filteredList = null;
         public SearchForm()
         {
             InitializeComponent();
@@ -27,12 +21,12 @@ namespace WinFormApp1
             //string description = txtDesc.Text;
             //decimal price = txtPrecio.Value;
 
-            List<Articulo> list = new ArticuloNegocio().listar();
+            List<Article> list = new ArticleRepository().GetAll();
 
             try
             {
                 if (!string.IsNullOrEmpty(name))
-                    filteredList = list.FindAll(a => a.NombreArt.ToUpper().Contains(name));
+                    filteredList = list.FindAll(a => a.Name.ToUpper().Contains(name));
 
 
                 ////combinaciones codigo
@@ -135,7 +129,7 @@ namespace WinFormApp1
             }
         }
 
-        public List<Articulo> GetFilteredList()
+        public List<Article> GetFilteredList()
         {
             return filteredList;
         }

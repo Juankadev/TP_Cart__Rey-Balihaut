@@ -41,16 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccesoDatos.cs" />
-    <Compile Include="ArticuloNegocio.cs" />
-    <Compile Include="CategoriaNegocio.cs" />
-    <Compile Include="MarcaNegocio.cs" />
+    <Compile Include="DataAccess.cs" />
+    <Compile Include="ArticleRepository.cs" />
+    <Compile Include="CategoryRepository.cs" />
+    <Compile Include="BrandRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dominio\Dominio.csproj">
+    <ProjectReference Include="..\Dominio\Entities.csproj">
       <Project>{ddd1494a-85ff-4b7f-ab26-512a494f6eb5}</Project>
-      <Name>Dominio</Name>
+      <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

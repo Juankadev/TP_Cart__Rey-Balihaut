@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
@@ -14,14 +7,14 @@ namespace WinFormApp1
 {
     public partial class CreateForm : Form
     {
-        private Articulo article = new Articulo();
+        private Article article = new Article();
 
         public CreateForm()
         {
             InitializeComponent();
             Text = "AGREGAR ARTICULO";
         }
-        public CreateForm(Articulo article)
+        public CreateForm(Article article)
         {
             InitializeComponent();
             this.article = article;
@@ -49,28 +42,28 @@ namespace WinFormApp1
         }
         private void LoadComboBoxCategory()
         {
-            CategoriaNegocio categoryRepository = new CategoriaNegocio();
-            cboCategoria.DataSource = categoryRepository.listar();
+            CategoryRepository categoryRepository = new CategoryRepository();
+            cboCategoria.DataSource = categoryRepository.GetAll();
             cboCategoria.ValueMember = "IdCategoria";
             cboCategoria.DisplayMember = "DescripcionCategoria";
         }
         private void LoadComboBoxBrand()
         {
-            MarcaNegocio brandRepository = new MarcaNegocio();
-            cboMarca.DataSource = brandRepository.listar();
+            BrandRepository brandRepository = new BrandRepository();
+            cboMarca.DataSource = brandRepository.GetAll();
             cboMarca.ValueMember = "IdMarca";
             cboMarca.DisplayMember = "DescripcionMarca";
         }
         private void LoadArticleInformation()
         {
-            txtnumeric.Text = article.CodigoArt;
-            txtNombre.Text = article.NombreArt;
-            txtDescripcion.Text = article.DescripcionArt;
-            numericUpDown1.Value = article.PrecioArt;
-            txtUrlImagen.Text = article.ImagenArt;
-            cboMarca.SelectedValue = article.Marca.IdMarca;
-            cboCategoria.SelectedValue = article.Categoria.IdCategoria;
-            LoadImage(article.ImagenArt);
+            txtnumeric.Text = article.Code;
+            txtNombre.Text = article.Name;
+            txtDescripcion.Text = article.Description;
+            numericUpDown1.Value = article.Price;
+            txtUrlImagen.Text = article.Image;
+            cboMarca.SelectedValue = article.Brand.Id;
+            cboCategoria.SelectedValue = article.Category.Id;
+            LoadImage(article.Image);
         }
         private void LoadImage(string image)
         {
@@ -86,19 +79,19 @@ namespace WinFormApp1
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            ArticuloNegocio repository = new ArticuloNegocio();
+            ArticleRepository repository = new ArticleRepository();
             try
             {
                 SetArticle();
 
                 if(article.Id != 0)
                 {
-                    repository.modificar(article);
+                    repository.Modify(article);
                     MessageBox.Show("Articulo modificado");
                 }
                 else
                 {
-                    repository.agregar(article);
+                    repository.Add(article);
                     MessageBox.Show("Articulo agregado");
                 }                        
             }
@@ -113,13 +106,13 @@ namespace WinFormApp1
         }
         private void SetArticle()
         {
-            article.CodigoArt = txtnumeric.Text;
-            article.NombreArt = txtNombre.Text;
-            article.DescripcionArt = txtDescripcion.Text;
-            article.ImagenArt = txtUrlImagen.Text;
-            article.Marca = (Marca)cboMarca.SelectedItem;
-            article.Categoria = (Categoria)cboCategoria.SelectedItem;
-            article.PrecioArt = numericUpDown1.Value;
+            article.Code = txtnumeric.Text;
+            article.Name = txtNombre.Text;
+            article.Description = txtDescripcion.Text;
+            article.Image = txtUrlImagen.Text;
+            article.Brand = (Brand)cboMarca.SelectedItem;
+            article.Category = (Category)cboCategoria.SelectedItem;
+            article.Price = numericUpDown1.Value;
         }
         private void txtUrlImagen_Leave(object sender, EventArgs e)
         {

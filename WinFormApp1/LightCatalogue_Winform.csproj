@@ -117,13 +117,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dominio\Dominio.csproj">
+    <ProjectReference Include="..\Dominio\Entities.csproj">
       <Project>{ddd1494a-85ff-4b7f-ab26-512a494f6eb5}</Project>
-      <Name>Dominio</Name>
+      <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Negocio\Negocio.csproj">
+    <ProjectReference Include="..\Negocio\Repositories.csproj">
       <Project>{56638b47-2de6-43df-84cf-e67fbcdcf662}</Project>
-      <Name>Negocio</Name>
+      <Name>Repositories</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

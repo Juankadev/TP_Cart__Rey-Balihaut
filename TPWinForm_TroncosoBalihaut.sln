@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32413.511
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormApp1", "WinFormApp1\WinFormApp1.csproj", "{AEDAD69E-571A-440B-83EC-DA9CCA68BE8A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightCatalogue_Winform", "WinFormApp1\LightCatalogue_Winform.csproj", "{AEDAD69E-571A-440B-83EC-DA9CCA68BE8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{DDD1494A-85FF-4B7F-AB26-512A494F6EB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Dominio\Entities.csproj", "{DDD1494A-85FF-4B7F-AB26-512A494F6EB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{56638B47-2DE6-43DF-84CF-E67FBCDCF662}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Negocio\Repositories.csproj", "{56638B47-2DE6-43DF-84CF-E67FBCDCF662}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "carritoweb", "carritoweb\carritoweb.csproj", "{9EB00B14-DCBC-459B-9A89-99701AC47FDE}"
 EndProject

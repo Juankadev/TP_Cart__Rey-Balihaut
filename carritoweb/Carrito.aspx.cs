@@ -11,12 +11,12 @@ namespace carritoweb
 {
     public partial class Contact : Page
     {      
-        public List<Articulo> listaArticulosCarrito { get; set; }
+        public List<Article> listaArticulosCarrito { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
+            ArticleRepository negocio = new ArticleRepository();
 
-            listaArticulosCarrito = new List<Dominio.Articulo>();
+            listaArticulosCarrito = new List<Dominio.Article>();
 
             if (Request.QueryString["id"] != null)
             {
@@ -25,10 +25,10 @@ namespace carritoweb
                 
                 if(Session["listaArticulosCarrito"]!=null)
                 {
-                    listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
+                    listaArticulosCarrito = (List<Article>)Session["listaArticulosCarrito"];
                 }
     
-                listaArticulosCarrito.Add(negocio.busquedaId(id));
+                listaArticulosCarrito.Add(negocio.GetById(id));
                 Session.Add("listaArticulosCarrito", listaArticulosCarrito);
             }
 
@@ -63,7 +63,7 @@ namespace carritoweb
             }
             else
             {
-                listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
+                listaArticulosCarrito = (List<Article>)Session["listaArticulosCarrito"];
                 if (listaArticulosCarrito == null) //Funciona pero CHEQUEAR..., probar con session a futuro
                 {
                     price.Text = "$0";
@@ -79,19 +79,19 @@ namespace carritoweb
 
 
 
-            listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
+            listaArticulosCarrito = (List<Article>)Session["listaArticulosCarrito"];
             //icon DELETE
             if (Request.QueryString["delete"] != null)
             {
                 int id = Int32.Parse(Request.QueryString["delete"].ToString());
                 int index = 0;
                 decimal precio=0;
-                foreach (Dominio.Articulo item in listaArticulosCarrito)
+                foreach (Dominio.Article item in listaArticulosCarrito)
                 {               
                     if(id==item.Id)
                     {
                         index = index;
-                        precio = item.PrecioArt;
+                        precio = item.Price;
                         break;
                     }
                     index++;
@@ -111,7 +111,7 @@ namespace carritoweb
 
 
             //cuento el producto agregado
-            listaArticulosCarrito = (List<Articulo>)Session["listaArticulosCarrito"];
+            listaArticulosCarrito = (List<Article>)Session["listaArticulosCarrito"];
             if(listaArticulosCarrito != null)
             {
                 Session.Add("contador", listaArticulosCarrito.Count);
