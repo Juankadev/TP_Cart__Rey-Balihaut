@@ -20,7 +20,14 @@ namespace WinFormApp1
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new ListForm().ShowDialog();
+            ListForm form = new ListForm();
+            form.FormClosed += ListForm_FormClosed;
+            form.ShowDialog();
+        }
+
+        private void ListForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

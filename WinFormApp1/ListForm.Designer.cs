@@ -141,7 +141,7 @@ namespace WinFormApp1
             // 
             // pbArticulo
             // 
-            this.pbArticulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbArticulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbArticulo.Location = new System.Drawing.Point(1035, 149);
             this.pbArticulo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbArticulo.Name = "pbArticulo";
@@ -150,7 +150,7 @@ namespace WinFormApp1
             this.pbArticulo.TabIndex = 1;
             this.pbArticulo.TabStop = false;
             // 
-            // frmListado
+            // ListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,7 +163,7 @@ namespace WinFormApp1
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "frmListado";
+            this.Name = "ListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de Articulos";
             this.Load += new System.EventHandler(this.frmListado_Load);
