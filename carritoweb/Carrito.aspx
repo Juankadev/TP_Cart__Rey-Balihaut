@@ -20,12 +20,12 @@
 
            <%if(listaArticulosCarrito!=null){%> 
  
-            <% foreach (Dominio.Articulo item in listaArticulosCarrito)
+            <% foreach (Dominio.Article item in listaArticulosCarrito)
             { %> 
                <div class="cart-item" id="titulo">
-                     <img src="<%=item.ImagenArt%>" class="card-img-top" alt="...">
-                     <h5 class="card-title" id="titulo"><%=item.NombreArt %></h5>
-                     <p id="titulo"><strong>$<%=item.PrecioArt %></strong></p>
+                     <img src="<%=item.Image%>" class="card-img-top" alt="...">
+                     <h5 class="card-title" id="titulo"><%=item.Name%></h5>
+                     <p id="titulo"><strong>$<%=item.Price%></strong></p>
                      <a href="Carrito.aspx?delete=<%=item.Id%>" class="img-delete bi bi-x-circle" ></a>
                </div>
              <% 

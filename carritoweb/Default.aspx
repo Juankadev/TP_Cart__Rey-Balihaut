@@ -27,9 +27,9 @@
  
            <h3 id="titulo">Categorias</h3>
        <div class="container-filtro" style="margin-bottom:50px">     
-            <% foreach (Dominio.Categoria item in categorias)
+            <% foreach (Dominio.Category item in categorias)
             {%>           
-               <a id="filtro-a" href="Default.aspx?categoria=<%=item.IdCategoria%>"><%=item.DescripcionCategoria %></a>       
+               <a id="filtro-a" href="Default.aspx?categoria=<%=item.Id%>"><%=item.Description %></a>       
             <%}
             %>
        </div>
@@ -38,9 +38,9 @@
 
            <h3 id="titulo">Marcas</h3>
     <div class="container-filtro" style="margin-bottom:50px">     
-            <% foreach (Dominio.Marca item in marcas)
+            <% foreach (Dominio.Brand item in marcas)
             {%>           
-               <a id="filtro-a" href="Default.aspx?marca=<%=item.IdMarca%>"><%=item.DescripcionMarca %></a>       
+               <a id="filtro-a" href="Default.aspx?marca=<%=item.Id%>"><%=item.Description %></a>       
             <%}
             %>
        </div>
@@ -50,17 +50,17 @@
 
      <div class="content-card">
 
-        <% foreach (Dominio.Articulo item in catalogo)
+        <% foreach (Dominio.Article item in catalogo)
         {%> 
                 <div class="card">
                     <div class="card-img">
-                        <img src="<%=item.ImagenArt%>" class="card-img-top" alt="...">
+                        <img src="<%=item.Image%>" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body">
-                      <h2 class="card-title"><%=item.NombreArt %></h2>
-                      <p class="card-text"><%=item.DescripcionArt %></p>
-                      <p><strong>$<%=item.PrecioArt %></strong></p>                         
-                        <a class="btn-add" href="Carrito.aspx?id=<%=item.Id %>&price=<%=item.PrecioArt %>">
+                      <h2 class="card-title"><%=item.Name %></h2>
+                      <p class="card-text"><%=item.Description %></p>
+                      <p><strong>$<%=item.Price %></strong></p>                         
+                        <a class="btn-add" href="Carrito.aspx?id=<%=item.Id %>&price=<%=item.Price %>">
                             Añadir al Carrito
                         </a>
                     </div>
