@@ -3,7 +3,7 @@
 WEB
 --------
 -Detalles:
-No descuenta bien el precio del total al eliminar un producto
+
 
 
 
