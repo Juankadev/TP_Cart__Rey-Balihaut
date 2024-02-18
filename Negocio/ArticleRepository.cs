@@ -209,13 +209,14 @@ namespace Negocio
 
             try
             {
-                data.SetQuery("select Id,Nombre,Precio,ImagenUrl from ARTICULOS where Id = @Id");
+                data.SetQuery("select Id,Codigo,Nombre,Precio,ImagenUrl from ARTICULOS where Id = @Id");
                 data.AddParameter("@Id", id);
                 data.ExecuteReader();
 
                 while (data.Reader.Read())
                 {
                     article.Id = (int)data.Reader["Id"];
+                    article.Code = (string)data.Reader["Codigo"];
                     article.Name = (string)data.Reader["Nombre"];
                     article.Price = (decimal)data.Reader["Precio"];
                     if (!(data.Reader["ImagenUrl"] is DBNull))

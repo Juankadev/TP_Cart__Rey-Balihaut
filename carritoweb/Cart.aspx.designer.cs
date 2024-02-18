@@ -15,15 +15,6 @@ namespace carritoweb
     {
 
         /// <summary>
-        /// Control contador.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label contador;
-
-        /// <summary>
         /// Control price.
         /// </summary>
         /// <remarks>
@@ -33,13 +24,13 @@ namespace carritoweb
         protected global::System.Web.UI.WebControls.Label price;
 
         /// <summary>
-        /// Control comprar.
+        /// Control buy.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button comprar;
+        protected global::System.Web.UI.WebControls.Button buy;
 
         /// <summary>
         /// Control success.

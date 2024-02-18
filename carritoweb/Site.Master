@@ -4,7 +4,7 @@
 
 <html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
@@ -13,12 +13,12 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
-<link href="https://cdn-icons-png.flaticon.com/512/2824/2824788.png" rel="shortcut icon" type="image/x-icon" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="https://cdn-icons-png.flaticon.com/512/2824/2824788.png" rel="shortcut icon" type="image/x-icon" />
 
     <link href="Content/sitemaster.css" rel="stylesheet" />
 </head>
-<body>
+<body style="background-color: #f8f9fa; padding: 0; margin: 0">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -41,43 +41,40 @@
         </asp:ScriptManager>
 
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="" >
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
-                </div>
-                <div class="">
-                    <ul class="nav navbar-nav">
-                        <li style="display:inline-block"><a runat="server" href="~/" style="display:inline-block">
-                            <span class="glyphicon glyphicon-home"></span>
-                            Inicio</a></li>
-                        <li style="display:inline-block">
-                            <a runat="server" href="~/Carrito" style="display:inline-block">
-                               <span class="glyphicon glyphicon-shopping-cart"></span>
-                                    <asp:Label ID="lblCart" runat="server" Text=""></asp:Label>
-
-                                Carrito
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a style="color: #000" class="navbar-brand" href="#">InfoShop</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a style="color: #000; font-size: 1.5rem" class="nav-link" href="Home">Productos <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #000; font-size: 1.5rem" class="nav-link" href="Cart">Carrito</a>
+                    </li>
+                </ul>
             </div>
+        </nav>
+
+
+        <!--Start Cart Counter-->
+        <div class="minicart">
+            <h4 style="text-align: center">
+                <img style="width: 60px; position: relative; top: 20px" src="https://i.pinimg.com/originals/eb/da/b9/ebdab98415d1cfe99877d909412acdfa.png" />
+            </h4>
+            <asp:Label ID="contador" class="badge badge-counter" runat="server" Text="0"></asp:Label>
         </div>
+        <!--End Cart Counter-->
 
 
-
-
-        <div class="container body-content">
+        <div class="body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer id="titulo">
-                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
+                <p>&copy; <%: DateTime.Now.Year %> - InfoShop</p>
             </footer>
         </div>
 
