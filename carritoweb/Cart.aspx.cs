@@ -52,7 +52,7 @@ namespace carritoweb
                 if (articlesCart.Count <= 0) Session.Remove("listaArticulosCarrito");
                 else Session.Add("listaArticulosCarrito", articlesCart);
 
-                LoadArticlesCart();
+                Response.Redirect(Request.Url.AbsolutePath);
             }
         }
         private void SetResumeTotalCart()
@@ -69,7 +69,6 @@ namespace carritoweb
             success.Visible = true; //gracias por tu compra
             SendEmail();
             Session.Add("listaArticulosCarrito", null);
-            //Response.Redirect(Request.Url.AbsoluteUri);
         }
         private void SendEmail()
         {
@@ -88,6 +87,18 @@ namespace carritoweb
             message.Subject = "Venta Realizada";
 
             BodyBuilder bodyBuilder = new BodyBuilder();
+            SetMessageMail(bodyBuilder);
+            message.Body = bodyBuilder.ToMessageBody();
+
+            SmtpClient smtp = new SmtpClient();
+            smtp.CheckCertificateRevocation = false;
+            smtp.Connect(host, port, MailKit.Security.SecureSocketOptions.StartTls);
+            smtp.Authenticate(User, Password);
+            smtp.Send(message);
+            smtp.Disconnect(true);
+        }
+        private void SetMessageMail(BodyBuilder bodyBuilder)
+        {
             bodyBuilder.HtmlBody += "Felicidades, se ha realizado una venta exitosa en tu e-commerce !! <br> <br> <br>";
 
             foreach (Article article in articlesCart)
@@ -104,33 +115,13 @@ namespace carritoweb
 
                     "</div>" +
 
-                    "<br><br>" +
-
-                    "<div> " +
-                        $"<strong style='font-size:1.4rem'>Total: {price.Text} " +
-                        $"</strong>" +
-                    "</div> ";
-
-                //< div class="cart-item" id="item">
-                //        <img src = "<%=item.Image%>" class="card-img-top" alt="...">
-                //        <h5 class="cart-item-title" id="cart-item-title"><%=item.Name%></h5>
-                //        <p class="cart-item-price">$<%=item.Price%></p>
-                //        <div class="icon-delete">
-                //            <a href = "Cart.aspx?delete=<%=item.Id%>" class="img-delete bi bi-x-circle"></a>
-
-                //        </div>
-
-                //    </div>
-
+                    "<br><br>";
             }
-            message.Body = bodyBuilder.ToMessageBody();
 
-            SmtpClient smtp = new SmtpClient();
-            smtp.CheckCertificateRevocation = false;
-            smtp.Connect(host, port, MailKit.Security.SecureSocketOptions.StartTls);
-            smtp.Authenticate(User, Password);
-            smtp.Send(message);
-            smtp.Disconnect(true);
+            bodyBuilder.HtmlBody += "<div> " +
+                                        $"<strong style='font-size:1.4rem'>Total: {price.Text} " +
+                                        $"</strong>" +
+                                    "</div> ";
         }
 
         //private bool CheckIfAnArticleWasAdded()
