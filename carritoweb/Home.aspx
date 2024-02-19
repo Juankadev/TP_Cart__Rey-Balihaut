@@ -39,7 +39,8 @@
                     <h2 class="card-title"><%=item.Name %></h2>
                     <%--   <p class="card-text"><%=item.Description %></p>--%>
                     <p><strong>$<%=item.Price %></strong></p>
-                    <a class="btn-add" href="Home.aspx?id=<%=item.Id %>">Agregar
+                    <a style="font-weight:bold" class="btn-add" href="Home.aspx?id=<%=item.Id %>">
+                        <i class="bi bi-cart-plus-fill"></i> Agregar
                     </a>
                 </div>
             </div>

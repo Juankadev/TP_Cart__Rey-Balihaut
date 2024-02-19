@@ -41,8 +41,8 @@
         </asp:ScriptManager>
 
 
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a style="color: #000" class="navbar-brand" href="#">InfoShop</a>
+        <nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top">
+            <a style="color: #000" class="navbar-brand" href="#"> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -52,7 +52,9 @@
                         <a style="color: #000; font-size: 1.5rem" class="nav-link" href="Home">Productos <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a style="color: #000; font-size: 1.5rem" class="nav-link" href="Cart">Carrito</a>
+                        <a style="color: #000; font-size: 1.5rem" class="nav-link" href="Cart">
+                            <img style="margin-left:2rem;margin-right:2rem; width: 45px;" src="https://i.pinimg.com/originals/eb/da/b9/ebdab98415d1cfe99877d909412acdfa.png" />           
+                        </a>
                     </li>
                 </ul>
             </div>
